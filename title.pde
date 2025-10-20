@@ -1,4 +1,4 @@
-void title() {
+void title() { //タイトル画面
     float buttonX = width / 2 - 200;
     float buttonY = height / 2 + 50;
     float buttonW = 400;

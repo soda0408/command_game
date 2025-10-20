@@ -1,29 +1,41 @@
-void member() {
-    //人数選択画面
-    background(75, 140, 175);
-    
+void member() { //人数選択画面
     textSize(96);
     fill(225);
-    text("人数を選択してください", width / 2, height / 4);
+    text("人数を選択してください", width / 2, height / 2);
     
-    //人数表示
-    textSize(128);
-    fill(225);
-    text(member + "人", width / 2, height / 2);
-    
-    //＋ボタン
-    fill(75, 140, 175);
     stroke(225);
-    rect(width / 2 + 150, height / 2 + 100, 100, 100);
+    strokeWeight(4);
+    
+    //マウスが被っているかどうか
+    if (mouseX >= button4X && mouseX <= button4X + mbuttonW && 
+        mouseY >= mbuttonY && mouseY <= mbuttonY + mbuttonH) {
+        fill(100, 165, 200); //マウスが重なっている時の色
+        button4();
+        fill(75, 140, 175); //通常時の色
+        button5();
+    } else if (mouseX >= button5X && mouseX <= button5X + mbuttonW && 
+        mouseY >= mbuttonY && mouseY <= mbuttonY + mbuttonH) {
+        fill(75, 140, 175); //通常時の色
+        button4();
+        fill(100, 165, 200); //マウスが重なっている時の色
+        button5();
+    } else{
+        fill(75, 140, 175); //通常時の色
+        button4();
+        button5();
+    }
+    
+    //ボタンのテキスト
     textSize(64);
     fill(225);
-    text("+", width / 2 + 200, height / 2 + 170);
-    
-    //－ボタン
-    fill(75, 140, 175);
-    stroke(225);
-    rect(width / 2 - 250, height / 2 + 100, 100, 100);
-    textSize(64);
-    fill(225);
-    text("-", width / 2 - 200, height / 2 + 170);
+    text("4人", width / 2 - mmargin - mbuttonW / 2, mbuttonY + 70);
+    text("5人", width / 2 + mmargin + mbuttonW / 2, mbuttonY + 70);
+}
+
+void button4() { //4人用ボタン
+    rect(button4X, mbuttonY, mbuttonW, mbuttonH, 20); 
+}
+
+void button5() { //5人用ボタン
+    rect(button5X, mbuttonY, mbuttonW, mbuttonH, 20); 
 }
