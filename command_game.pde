@@ -1,7 +1,22 @@
+String page = "title"; //ページ遷移用
+int member = 0; //人数
+
+PFont font;
+
 void setup() {
-    size(200, 200);
+    fullScreen();
+    background(75, 140, 175);
+    
+    font = createFont("Meiryo", 64, true);
 }
 
 void draw() {
-    ellipse(100, 100, 50, 50);
+    textFont(font);
+    textAlign(CENTER, BOTTOM);
+    
+    switch(page) { // pageの切替
+        case "title":
+            title();
+            break;
+    }
 }
