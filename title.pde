@@ -7,10 +7,11 @@ void title() {
     //STARTボタン
     fill(75, 140, 175);
     stroke(225);
-    rect(width / 2 - 200, height / 2 + 100, 400, 100);
+    strokeWeight(4);
+    rect(width / 2 - 200, height / 2 + 100, 400, 100, 20);
     
     //STARTの文字
-    textSize(128);
+    textSize(64);
     fill(225);
     text("START", width / 2, height / 2 + 170);
 }
