@@ -18,5 +18,8 @@ void draw() {
         case "title":
             title();
             break;
+        case "member":
+            member();
+            break;
     }
 }
