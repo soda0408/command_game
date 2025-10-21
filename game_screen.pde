@@ -38,14 +38,14 @@ void game_screen() {
         text(s, baseX + 5, slotY + pad);
         
         // プレイヤーの指示表示
-        if (playerCommands != null && playerCommands[i] != null) {
+        if (playerCards != null && playerCards[i] != null) {
             int plletterSize = 25;
             
             for (int j = 0; j < 20; j++) { // 最大20枚まで
-                if (playerCommands[i][j] != null) {
+                if (playerCards[i][j] != null) {
                     // カードを表示
                     textSize(plletterSize);
-                    text("・" + playerCommands[i][j],
+                    text("・" + playerCards[i][j].command,
                         baseX,
                         slotY + pad + 45 + j * (plletterSize + 10));
                 }

@@ -11,6 +11,9 @@ void setup() {
     button5X = width / 2 + mmargin;
     
     cardSetUp();
+    playerCards = new Card[5][20]; //各プレイヤーの手札初期化
+    
+    gameSetUp();
 }
 
 void draw() {

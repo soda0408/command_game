@@ -63,11 +63,17 @@ void keyPressed() {
         switch(gameState) {
             case "showCard" : //カードを表示
                 if (key == ENTER || key == RETURN) {
+                    randnum = int(random(1, member + 1));
                     setGameState("minigame");
                 }
                 break;
             case "minigame" : //ミニゲーム画面表示（仮）
                 if (key == ENTER || key == RETURN) {
+                    if (cards[currentCard].type == 0) {
+                        currentgGameIndex += 1;
+                    } else {
+                        currentdGameIndex += 1;
+                    }
                     setGameState("selectPlayer");
                 }
                 break;
@@ -88,7 +94,7 @@ void keyPressed() {
                         setGameState("showCard");
                     }
                 }
-                break;       
+                break;  
         }
         break;
     }

@@ -8,8 +8,6 @@ int letterSize = 60;
 
 float stateStartMillis = 0;
 
-String playerCommands[][]; //各プレイヤーの手札
-
 void gameSystem() {
     switch(gameState) {
         case "showCard" : //カードを表示
@@ -22,7 +20,12 @@ void gameSystem() {
         
         case "selectPlayer" : //プレイヤー選択画面
             displayPlayerSelection();
-            break;           
+            break;
+        
+        case "result" : //カード配布結果表示（仮）
+            textAlign(CENTER, CENTER);
+            text("Press ENTER to continue", width / 2, height / 3);
+            break;
         
         case "gameEnd" : //ゲーム終了画面
             displayGameEnd();
@@ -53,11 +56,18 @@ void displayCurrentCard() {
 
 void displayMinigame() {
     textAlign(CENTER, CENTER);
-    textSize(64);
     fill(225);
-    text("ミニゲーム", width / 2, height / 3);
+    if (cards[currentCard].type == 0) {
+        gGames[currentgGameIndex].display(width / 2, height / 4 - 100, 45, 60);
+        if (millis() - stateStartMillis > 10000) {
+            textSize(40);
+            text("ヒント：" + gGames[currentgGameIndex].hint, width / 2, height * 2 / 3 - 150);
+        }
+    } else {
+        dGames[currentdGameIndex].display(width / 2, height / 4 - 100, 45, 60);
+    }
     textSize(32);
-    text("Press ENTER to continue", width / 2, height / 3 + 100);
+    text("PRESS ENTER to NEXT", width / 2, height * 2 / 3 - 60);
 }
 
 void displayPlayerSelection() {
@@ -92,19 +102,18 @@ void displayGameEnd() {
 
 void giveCardToPlayer(int playerIndex) {
     // プレイヤーの手札配列が未初期化なら初期化
-    if (playerCommands == null) {
-        playerCommands = new String[member][20]; // 各プレイヤー最大20枚まで
+    if (playerCards == null) {
+        playerCards = new Card[member][20]; // 各プレイヤー最大20枚まで
     }
     
     // カードを追加（最初の空きスロットを探す）
     for (int i = 0; i < 20; i++) {
-        if (playerCommands[playerIndex][i] == null) {
+        if (playerCards[playerIndex][i] == null) {
+            playerCards[playerIndex][i] = cards[currentCard];
             if (cards[currentCard].command == "つま先立ち\nもしくは\nつま先だけ地面につける") {
-                playerCommands[playerIndex][i] = "つま先立ち";  
+                playerCards[playerIndex][i].command = "つま先立ち";  
             } else if (cards[currentCard].command == "片足立ち\nもしくは\n片足浮かせる") {
-                playerCommands[playerIndex][i] = "片足立ち";
-            } else{
-                playerCommands[playerIndex][i] = cards[currentCard].command;
+                playerCards[playerIndex][i].command = "片足立ち";
             }
             break;
         }

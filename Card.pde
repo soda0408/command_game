@@ -1,6 +1,7 @@
 Card gCards[]; //バフカード
 Card dCards[]; //デバフカード
 Card cards[]; //山札
+Card playerCards[][]; //各プレイヤーの手札
 
 class Card{
     String command;

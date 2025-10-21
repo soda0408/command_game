@@ -4,6 +4,8 @@ MiniGame dGames[]; //デバフ用ゲーム
 int currentgGameIndex = 0; //現在のバフミニゲーム
 int currentdGameIndex = 0; //現在のデバフミニゲーム
 
+int randnum = 0;
+
 class MiniGame{
     String body;
     String hint;
@@ -26,16 +28,15 @@ class MiniGame{
             text("アナグラムを解け！", x, y);
             text("速く解けた人がバフカード獲得！", x, y + qLetter + 10);
         } else if (type == 1) {
-            int n = random(1, member + 1);
-            text("早口言葉を" + n + "番から順番に言え！(1回ずつ)", x, y);
-            text("最後になるな！言えた人はデバフカード回避！", x, y + qLetter + 10);
+            text("早口言葉を" + randnum + "番から順番に言え！(1回ずつ)", x, y);
+            text("言えた人から抜けてOK！最後の人がデバフ獲得", x, y + qLetter + 10);
         }
         textSize(bLetter);
-        text(body, x, y + qLetter * 2 + 50);     
+        text(body, x, y + qLetter * 2 + 100);     
     }        
 }
 
-void cardSetUp() {
+void gameSetUp() {
     //カードの初期化
     gGames = new MiniGame[20]; //バフ用ゲーム
     dGames = new MiniGame[30]; //デバフ用ゲーム
@@ -118,7 +119,7 @@ void cardSetUp() {
     for (int i = gGames.length - 1; i > 0; i--) {
         int j = (int)random(i + 1);
         //カードの交換
-        Card gGame = gGames[i];
+        MiniGame gGame = gGames[i];
         gGames[i] = gGames[j];
         gGames[j] = gGame;
     } 
@@ -126,7 +127,7 @@ void cardSetUp() {
     for (int i = dGames.length - 1; i > 0; i--) {
         int j = (int)random(i + 1);
         //カードの交換
-        Card dGame = dGames[i];
+        MiniGame dGame = dGames[i];
         dGames[i] = dGames[j];
         dGames[j] = dGame;
     } 
