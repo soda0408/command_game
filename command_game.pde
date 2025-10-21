@@ -40,5 +40,8 @@ void draw() {
         case "name":
             name();
             break;
+        case "all_member":
+            all_member();
+            break;
     }
 }

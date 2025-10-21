@@ -23,7 +23,7 @@ void keyPressed() {
             currentInput = "";
             // 全員分入力したら次の画面へ（ここではタイトルに戻す）
             if (nameIndex >= member) {
-                page = "title";
+                page = "all_member";
             }
         }
     }
