@@ -1,6 +1,10 @@
 String page = "title"; //ページ遷移用
+
 String name[]; //プレイヤーネーム用
+String currentInput = ""; //現在入力中の名前保存用
+
 int member = 0; //人数
+int nameIndex = 0; //名前配列の場所用
 
 //memberページ
 float mbuttonW = 200;
