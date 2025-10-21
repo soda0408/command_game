@@ -1,17 +1,14 @@
 String gameState = "showCard"; // ゲームの状態管理用
 int currentCard = 0;          // 現在のカード番号
-int currentPlayer = 0;        // 現在のプレイヤー番号
 int selectedPlayer = 0;
 
 int cardw = 800; 
 int cardh = 400;
 int letterSize = 60;
 
-int plcardw = 40;
-int plcardh = 30;
-int plletterSize = 12;
-
 float stateStartMillis = 0;
+
+String playerCommands[][]; //各プレイヤーの手札
 
 void gameSystem() {
     switch(gameState) {
@@ -83,6 +80,16 @@ void displayGameEnd() {
 }
 
 void giveCardToPlayer(int playerIndex) {
-    // カードをプレイヤーに付与する処理
-    // 今後実装
+    // プレイヤーの手札配列が未初期化なら初期化
+    if (playerCommands == null) {
+        playerCommands = new String[member][20]; // 各プレイヤー最大20枚まで
+    }
+    
+    // カードを追加（最初の空きスロットを探す）
+    for (int i = 0; i < 20; i++) {
+        if (playerCommands[playerIndex][i] == null) {
+            playerCommands[playerIndex][i] = cards[currentCard].command;
+            break;
+        }
+    }
 }

@@ -73,7 +73,7 @@ void keyPressed() {
                 break;
             case "selectPlayer" : //プレイヤー選択画面
                 if (keyPressed && key >= '1' && key <= char('0' + member)) {
-                    selectedPlayer = key - '1'; // 0-based indexに変換
+                    selectedPlayer = key - '1';
                     giveCardToPlayer(selectedPlayer);
                     currentCard++;
                     setGameState("result");

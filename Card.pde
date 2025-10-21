@@ -1,7 +1,6 @@
 Card gCards[]; //バフカード
 Card dCards[]; //デバフカード
 Card cards[]; //山札
-Card playerCards[][]; //プレイヤーの手札用、[0][]:player1、[1][]:player2、...
 
 class Card{
     String command;
@@ -49,9 +48,9 @@ void cardSetUp() {
     
     //デバフカードの設定
     dCards[0] = new Card("おしりをつける", 3);
-    dCards[1] = new Card("片足立ち\n片足浮かせる", 3);
+    dCards[1] = new Card("片足立ち\nもしくは\n片足浮かせる", 3);
     dCards[2] = new Card("膝を曲げる", 3);
-    dCards[3] = new Card("つま先立ち\nつま先だけ地面につける", 3);
+    dCards[3] = new Card("つま先立ち\nもしくは\nつま先だけ地面につける", 3);
     dCards[4] = new Card("右手を腰にあてる", 1);
     dCards[5] = new Card("左手を腰にあてる", 2);
     dCards[6] = new Card("腕を交差させる", 3);
@@ -89,6 +88,4 @@ void cardSetUp() {
         cards[i] = cards[j];
         cards[j] = temp;
     } 
-    
-    playerCards = new Card[member][cards.length]; //人数分、最大枚数分を用意
 }
