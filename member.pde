@@ -2,6 +2,8 @@ void member() { //人数選択画面
     textSize(96);
     fill(225);
     text("人数を選択してください", width / 2, height / 2 - 50);
+    textSize(60);
+    text("← →キーで選択", width / 2, height / 2 + 50);
     
     stroke(225);
     strokeWeight(4);

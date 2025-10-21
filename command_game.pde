@@ -20,7 +20,7 @@ void setup() {
     fullScreen();
     font = createFont("Meiryo", 64, true);
     
-    mbuttonY = height / 2;
+    mbuttonY = height / 2 + 100;
     button4X = width / 2 - mbuttonW - mmargin;
     button5X = width / 2 + mmargin;
 }
