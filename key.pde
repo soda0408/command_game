@@ -52,5 +52,11 @@ void keyPressed() {
             }
         }
         break;
+        
+        case"all_member":
+        if (key == ENTER || key == RETURN) {
+            page = "game";
+        }
+        break;
     }
 }

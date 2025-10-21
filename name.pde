@@ -46,9 +46,11 @@ void name() {
 
 void all_member() {
     textSize(64);
-    fill(225);
-    text("このメンバーで始めます", width / 2, height / 2 - 250);
+    text("このメンバーで始めます", width / 2, height / 2 - 300);
+    textSize(64);
     for (int i = 0; i < member; i++) {
-        text("Player " + (i + 1) + ": " + name[i], width / 2, height / 2 - 50 + i * 100);
+        text("Player " + (i + 1) + ": " + name[i], width / 2, height / 2 - 130 + i * 100);
     }
+    textSize(32);
+    text("PUSH ENTER TO NEXT", width / 2, height / 2 - 130 + member * 100);
 }
