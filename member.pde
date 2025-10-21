@@ -1,7 +1,7 @@
 void member() { //人数選択画面
     textSize(96);
     fill(225);
-    text("人数を選択してください", width / 2, height / 2);
+    text("人数を選択してください", width / 2, height / 2 - 50);
     
     stroke(225);
     strokeWeight(4);
@@ -28,8 +28,8 @@ void member() { //人数選択画面
     //ボタンのテキスト
     textSize(64);
     fill(225);
-    text("4人", width / 2 - mmargin - mbuttonW / 2, mbuttonY + 70);
-    text("5人", width / 2 + mmargin + mbuttonW / 2, mbuttonY + 70);
+    text("4人", width / 2 - mmargin - mbuttonW / 2, mbuttonY + 85);
+    text("5人", width / 2 + mmargin + mbuttonW / 2, mbuttonY + 85);
 }
 
 void button4() { //4人用ボタン

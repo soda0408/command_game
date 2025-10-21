@@ -1,4 +1,5 @@
 String page = "title"; //ページ遷移用
+String name[]; //プレイヤーネーム用
 int member = 0; //人数
 
 //memberページ
@@ -12,7 +13,7 @@ float button5X;
 PFont font;
 
 void setup() {
-    fullScreen();    
+    fullScreen();
     font = createFont("Meiryo", 64, true);
     
     mbuttonY = height / 2;
@@ -31,6 +32,9 @@ void draw() {
             break;
         case "member":
             member();
+            break;
+        case "name":
+            name();
             break;
     }
 }
