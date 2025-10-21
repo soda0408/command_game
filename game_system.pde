@@ -88,7 +88,13 @@ void giveCardToPlayer(int playerIndex) {
     // カードを追加（最初の空きスロットを探す）
     for (int i = 0; i < 20; i++) {
         if (playerCommands[playerIndex][i] == null) {
-            playerCommands[playerIndex][i] = cards[currentCard].command;
+            if (cards[currentCard].command == "つま先立ち\nもしくは\nつま先だけ地面につける") {
+                playerCommands[playerIndex][i] = "つま先立ち";  
+            } else if (cards[currentCard].command == "片足立ち\nもしくは\n片足浮かせる") {
+                playerCommands[playerIndex][i] = "片足立ち";
+            } else{
+                playerCommands[playerIndex][i] = cards[currentCard].command;
+            }
             break;
         }
     }

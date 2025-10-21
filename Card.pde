@@ -58,13 +58,13 @@ void cardSetUp() {
     dCards[8] = new Card("左手を挙げる", 2);
     dCards[9] = new Card("右手で地面を触る", 1);
     dCards[10] = new Card("左手で地面を触る", 2);
-    dCards[11] = new Card("その場で1回ジャンプ", 4);
-    dCards[12] = new Card("その場で2回ジャンプ", 4);
-    dCards[13] = new Card("その場で3回ジャンプ", 4);
+    dCards[11] = new Card("1回ジャンプ", 4);
+    dCards[12] = new Card("2回ジャンプ", 4);
+    dCards[13] = new Card("3回ジャンプ", 4);
     dCards[14] = new Card("目を10秒つぶる", 4);
     dCards[15] = new Card("その場でターン", 4);
     dCards[16] = new Card("膝を曲げて伸ばす", 4);
-    dCards[17] = new Card("両肩を2回ずつまわす", 4);
+    dCards[17] = new Card("両肩を2回まわす", 4);
     
     //山札の初期化
     cards = new Card[gCards.length + dCards.length];
