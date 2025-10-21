@@ -26,7 +26,7 @@ void keyPressed() {
             member = 4;
         } else if (keyCode == RIGHT) {
             member = 5;
-        } else if (key == ENTER || key == RETURN) {
+        } else if (member > 0 && (key == ENTER || key == RETURN)) {
             name = new String[member];
             nameIndex = 0;
             currentInput = "";
@@ -61,23 +61,35 @@ void keyPressed() {
         
         case"game":
         switch(gameState) {
-            case "showCard":
+            case "showCard" : //カードを表示
                 if (key == ENTER || key == RETURN) {
-                    gameState = "minigame";
-                }
-                break;    
-            case "minigame":
-                if (key == ENTER || key == RETURN) {
-                    gameState = "selectPlayer";
+                    setGameState("minigame");
                 }
                 break;
-            case "selectPlayer":
+            case "minigame" : //ミニゲーム画面表示（仮）
+                if (key == ENTER || key == RETURN) {
+                    setGameState("selectPlayer");
+                }
+                break;
+            case "selectPlayer" : //プレイヤー選択画面
                 if (keyPressed && key >= '1' && key <= char('0' + member)) {
                     selectedPlayer = key - '1'; // 0-based indexに変換
+                    giveCardToPlayer(selectedPlayer);
                     currentCard++;
+                    setGameState("result");
                 }
                 break;
+            
+            case "result" : //結果表示画面
+                if (key == ENTER || key == RETURN) {
+                    if (currentCard >= cards.length) {
+                        setGameState("gameEnd");
+                    } else {
+                        setGameState("showCard");
+                    }
+                }
+                break;       
         }
-        break; 
+        break;
     }
 }
