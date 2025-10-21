@@ -6,7 +6,7 @@ void game_screen() {
     
     // 名前エリア背景
     noStroke();
-    fill(50, 90, 110);
+    fill(50);
     rect(0, areaY, width, areaH);
     
     int n = max(1, member);

@@ -18,7 +18,7 @@ void name() {
     
     stroke(225);
     strokeWeight(3);
-    fill(50, 100, 130);
+    fill(100);
     rect(boxX, boxY, boxW, boxH, 12);
     
     // 入力中のテキスト表示

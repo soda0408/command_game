@@ -6,6 +6,18 @@ String currentInput = ""; //現在入力中の名前保存用
 int member = 0; //人数
 int nameIndex = 0; //名前配列の場所用
 
+//カード関連
+int cardw = 200; 
+int cardh = 150;
+int letterSize = 40;
+int plcardw = 40;
+int plcardh = 30;
+int plletterSize = 12;
+Card gCards[]; //バフカード
+Card dCards[]; //デバフカード
+Card cards[]; //山札
+Card playerCards[][]; //プレイヤーの手札用、[0][]:player1、[1][]:player2、...
+
 //memberページ
 float mbuttonW = 200;
 float mbuttonH = 100;
@@ -23,10 +35,12 @@ void setup() {
     mbuttonY = height / 2 + 100;
     button4X = width / 2 - mbuttonW - mmargin;
     button5X = width / 2 + mmargin;
+    
+    cardSetUp();
 }
 
 void draw() {
-    background(75, 140, 175);
+    background(100);
     textFont(font);
     textAlign(CENTER, BOTTOM);
     
