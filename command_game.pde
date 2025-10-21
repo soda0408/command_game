@@ -44,7 +44,7 @@ void draw() {
             all_member();
             break;
         case "game":
-            game();
+            game_screen();
             break;
     }
 }
