@@ -12,11 +12,15 @@ void mouseClicked() {
                 mouseY >= mbuttonY && mouseY <= mbuttonY + mbuttonH) {
                 member = 4;
                 name = new String[member];
+                nameIndex = 0;
+                currentInput = "";
                 page = "name";
             } else if (mouseX >= button5X && mouseX <= button5X + mbuttonW && 
                 mouseY >= mbuttonY && mouseY <= mbuttonY + mbuttonH) {
                 member = 5;
                 name = new String[member];
+                nameIndex = 0;
+                currentInput = "";
                 page = "name";
             }
             break; 
