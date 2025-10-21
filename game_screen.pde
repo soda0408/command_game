@@ -30,16 +30,16 @@ void game_screen() {
         
         // プレイヤー名
         fill(225);
-        textSize(45);
+        textSize(40);
         String s = "（未入力）";
         if (name != null && i < name.length && name[i] != null && name[i].length() > 0) {
             s = name[i];
         }
-        text(s, baseX + innerPadX + pad, slotY + pad);
+        text(s, baseX + 5, slotY + pad);
         
         // プレイヤーの指示表示
         if (playerCommands != null && playerCommands[i] != null) {
-            int plletterSize = 30;
+            int plletterSize = 25;
             
             for (int j = 0; j < 20; j++) { // 最大20枚まで
                 if (playerCommands[i][j] != null) {
@@ -47,7 +47,7 @@ void game_screen() {
                     textSize(plletterSize);
                     text("・" + playerCommands[i][j],
                         baseX,
-                        slotY + pad + 40 + j * (plletterSize + 5));
+                        slotY + pad + 45 + j * (plletterSize + 10));
                 }
             }
         }

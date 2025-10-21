@@ -15,6 +15,7 @@ class Card{
     
     //カードを表示
     void display(int x, int y, int w, int h, int letterSize) {
+        textAlign(CENTER, CENTER);
         if (type ==  0) {
             stroke(100,160,220);
             strokeWeight(3);
@@ -23,7 +24,7 @@ class Card{
             
             fill(100,160,220);
             textSize(letterSize);
-            text(command, x + cardw / 2, y + cardh / 2); 
+            text(command, x + w / 2, y + h / 2); 
         } else {
             stroke(180,50,70);
             strokeWeight(3);
@@ -32,7 +33,7 @@ class Card{
             
             fill(180,50,70);
             textSize(letterSize);
-            text(command, x + cardw / 2, y + cardh / 2); // カードの中央にテキストを表示            
+            text(command, x + w / 2, y + h / 2); // カードの中央にテキストを表示            
         }        
     }
 }
