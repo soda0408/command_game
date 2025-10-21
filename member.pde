@@ -1,3 +1,13 @@
+float mbuttonW = 200;
+float mbuttonH = 100;
+float mbuttonY;
+float mmargin = 50; //ボタン間の間隔
+float button4X;
+float button5X;
+
+int member = 0; //人数
+int nameIndex = 0; //名前配列の場所用
+
 void member() { //人数選択画面
     textSize(96);
     fill(225);

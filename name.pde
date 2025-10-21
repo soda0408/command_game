@@ -1,3 +1,6 @@
+String name[]; //プレイヤーネーム用
+String currentInput = ""; //現在入力中の名前保存用
+
 void name() {
     // 見出し
     textSize(72);
@@ -27,7 +30,6 @@ void name() {
     textAlign(LEFT, CENTER);
     // 左寄せでボックス内に表示するため X を調整
     text(currentInput, boxX + 20, boxY + boxH / 2);
-    textAlign(CENTER, BOTTOM); // 元の整列に戻す
     
     // 保存済みの名前一覧（下部に表示）
     textSize(40);
@@ -35,22 +37,26 @@ void name() {
     float listY = boxY + boxH + 100;
     for (int i = 0; i < (name != null ? name.length : 0); i++) {
         String n = name[i] != null ? name[i] : "（未入力）";
-        text((i + 1) + " : " + n, width / 2, listY + i * 60);
+        text((i + 1) + " : " + n, width / 3, listY + i * 60);
     }
     
     // 補足: Enter で確定、Backspace で削除
+    textAlign(CENTER, BOTTOM); // 元の整列に戻す
     textSize(24);
     text("Enterで確定、Backspaceで削除", width / 2, boxY + boxH + 30);
 }
 
 
 void all_member() {
+    textAlign(CENTER, BOTTOM);
     textSize(64);
     text("このメンバーで始めます", width / 2, height / 2 - 300);
+    textSize(32);
+    text("PRESS ENTER TO NEXT", width / 2, height / 2 - 130 + member * 100);
+    
+    textAlign(LEFT, CENTER);
     textSize(64);
     for (int i = 0; i < member; i++) {
-        text("Player " + (i + 1) + ": " + name[i], width / 2, height / 2 - 130 + i * 100);
+        text("Player " + (i + 1) + ": " + name[i], width / 3 - 50, height / 2 - 180 + i * 100);
     }
-    textSize(32);
-    text("PUSH ENTER TO NEXT", width / 2, height / 2 - 130 + member * 100);
 }

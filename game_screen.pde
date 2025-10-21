@@ -24,16 +24,32 @@ void game_screen() {
         line(x, areaY, x, areaY + areaH);
     }
     
-    // 名前表示
-    fill(225);
-    textSize(40);
+    // 各プレイヤーの表示領域
     for (int i = 0; i < n; i++) {
+        float baseX = i * slotW;
+        
+        // プレイヤー名
+        fill(225);
+        textSize(40);
         String s = "（未入力）";
         if (name != null && i < name.length && name[i] != null && name[i].length() > 0) {
             s = name[i];
         }
-        float x = i * slotW + innerPadX + pad;
-        float y = slotY + pad;
-        text(s, x, y);
+        text(s, baseX + 5, slotY + pad);
+        
+        // プレイヤーの指示表示
+        if (playerCommands != null && playerCommands[i] != null) {
+            int plletterSize = 25;
+            
+            for (int j = 0; j < 20; j++) { // 最大20枚まで
+                if (playerCommands[i][j] != null) {
+                    // カードを表示
+                    textSize(plletterSize);
+                    text("・" + playerCommands[i][j],
+                        baseX,
+                        slotY + pad + 45 + j * (plletterSize + 10));
+                }
+            }
+        }
     }
 }
