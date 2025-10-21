@@ -1,10 +1,3 @@
-int cardw = 200; 
-int cardh = 150;
-int letterSize = 40;
-int plcardw = 40;
-int plcardh = 30;
-int plletterSize = 12;
-
 Card gCards[]; //バフカード
 Card dCards[]; //デバフカード
 Card cards[]; //山札
@@ -16,9 +9,9 @@ class Card{
     //0:バフ、1:デバフ＋右手、2:デバフ＋左手、3:手が関係ないデバフ、4:一発系
     
     //コンストラクタ
-    Card(String s, boolean t) {
-        this.command = command;
-        this.type = type;
+    Card(String s, int t) {
+        this.command = s;
+        this.type = t;
     }    
     
     //カードを表示
@@ -30,7 +23,6 @@ class Card{
             rect(x, y, w, h);
             
             fill(100,160,220);
-            textAlign(CENTER, CENTER);
             textSize(letterSize);
             text(command, x + cardw / 2, y + cardh / 2); 
         } else {
@@ -40,7 +32,6 @@ class Card{
             rect(x, y, w, h);
             
             fill(180,50,70);
-            textAlign(CENTER, CENTER);
             textSize(letterSize);
             text(command, x + cardw / 2, y + cardh / 2); // カードの中央にテキストを表示            
         }        
@@ -98,4 +89,6 @@ void cardSetUp() {
         cards[i] = cards[j];
         cards[j] = temp;
     } 
+    
+    playerCards = new Card[member][cards.length]; //人数分、最大枚数分を用意
 }

@@ -33,6 +33,7 @@ void draw() {
             break;
         case "game":
             game_screen();
+            gameSystem();
             break;
     }
 }

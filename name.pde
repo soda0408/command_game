@@ -55,5 +55,5 @@ void all_member() {
         text("Player " + (i + 1) + ": " + name[i], width / 2, height / 2 - 130 + i * 100);
     }
     textSize(32);
-    text("PUSH ENTER TO NEXT", width / 2, height / 2 - 130 + member * 100);
+    text("PRESS ENTER TO NEXT", width / 2, height / 2 - 130 + member * 100);
 }

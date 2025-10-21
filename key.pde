@@ -58,5 +58,26 @@ void keyPressed() {
             page = "game";
         }
         break;
+        
+        case"game":
+        switch(gameState) {
+            case "showCard":
+                if (key == ENTER || key == RETURN) {
+                    gameState = "minigame";
+                }
+                break;    
+            case "minigame":
+                if (key == ENTER || key == RETURN) {
+                    gameState = "selectPlayer";
+                }
+                break;
+            case "selectPlayer":
+                if (keyPressed && key >= '1' && key <= char('0' + member)) {
+                    selectedPlayer = key - '1'; // 0-based indexに変換
+                    currentCard++;
+                }
+                break;
+        }
+        break; 
     }
 }
