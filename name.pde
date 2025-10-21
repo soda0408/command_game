@@ -1,3 +1,6 @@
+String name[]; //プレイヤーネーム用
+String currentInput = ""; //現在入力中の名前保存用
+
 void name() {
     // 見出し
     textSize(72);
